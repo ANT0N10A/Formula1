@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Formula1"
+             x:Class="Formula1.PilotiPage"
+             x:Name="PilotiF1"
+             BindingContext="{x:Reference PilotiF1}"
+             Title="Piloti F1">
+
+    <Grid RowDefinitions="100, *">
+
+        <CollectionView Grid.Row="1"
+                        x:Name="collectionViewPiloti"
+                        ItemsSource="{Binding Drivers}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Grid RowDefinitions="3*, 2*">
+                            <Label Grid.Row="0"
+                                   Text="{Binding FullName}"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"/>
+                            <Label Grid.Row="1"
+                                   Text="{Binding dateOfBirth}"
+                                   HorizontalOptions="Start"/>
+                            <Label Grid.Row="1"
+                                   Text="{Binding nationality}"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <ActivityIndicator Grid.Row="1"
+                           Color="{StaticResource Primary}"
+                           IsRunning="True"
+                           IsEnabled="True"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           x:Name="LoadingIndicator"/>
+    </Grid>
+
+</ContentPage>

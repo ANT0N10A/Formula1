@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Formula1.GarePage"
+             x:Name="GareF1"
+             BindingContext="{x:Reference GareF1}"
+             Title="Gare F1">
+    
+    <Grid RowDefinitions="100, *">
+        
+        <CollectionView Grid.Row="1"
+                        x:Name="collectionViewGare"
+                        ItemsSource="{Binding Races}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Grid RowDefinitions="3*, 2*">
+                            <Label Grid.Row="0" 
+                                   Text="{Binding raceName}"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Text="{Binding Circuit.circuitName}"/>
+                            <Label Grid.Row="1"
+                                   HorizontalOptions="End"
+                                   Text="{Binding Circuit.Location.country}"/>
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <ActivityIndicator Grid.Row="1"
+                           Color="{StaticResource Primary}"
+                           IsRunning="True"
+                           IsEnabled="True"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           x:Name="LoadingIndicator"/>
+    </Grid>
+    
+</ContentPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Formula1.YearControl">
+    
+    <Grid ColumnDefinitions="50, 200, 50">
+        <Button Grid.Column="0"
+                Text="-"
+                Clicked="MinusButton_Clicked"
+                x:Name="MinusButton"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                MinimumWidthRequest="50"/>
+        
+        <Entry Grid.Column="1"
+               x:Name="ValueEntry"
+               FontSize="90"
+               HorizontalTextAlignment="Center"
+               TextChanged="ValueEntry_TextChanged"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+        
+        <Button Grid.Column="2"
+                Text="+"
+                Clicked="PlusButton_Clicked"
+                x:Name="PlusButton"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                MinimumWidthRequest="50"/>
+    </Grid>
+    
+</ContentPage>
